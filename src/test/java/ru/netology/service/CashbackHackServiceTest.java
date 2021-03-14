@@ -1,5 +1,7 @@
 package ru.netology.service;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.Assert.*;
 
 public class CashbackHackServiceTest {
@@ -10,7 +12,7 @@ public class CashbackHackServiceTest {
         int amount = 1000;
         int actual = service.remain(amount);
         int expected = 0;
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @org.junit.Test
@@ -19,7 +21,7 @@ public class CashbackHackServiceTest {
         int amount = 0;
         int actual = service.remain(amount);
         int expected = 1000;
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @org.junit.Test
@@ -28,7 +30,7 @@ public class CashbackHackServiceTest {
         int amount = 500;
         int actual = service.remain(amount);
         int expected = 500;
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @org.junit.Test
@@ -37,6 +39,42 @@ public class CashbackHackServiceTest {
         int amount = 900;
         int actual = service.remain(amount);
         int expected = 100;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldReturn0IfAmount1000WithAPI() {
+        CashbackHackService service = new CashbackHackService();
+        int amount = 1000;
+        int actual = service.remain(amount);
+        int expected = 0;
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    public void shouldReturn1000IfAmount0WithAPI() {
+        CashbackHackService service = new CashbackHackService();
+        int amount = 0;
+        int actual = service.remain(amount);
+        int expected = 1000;
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    public void shouldReturn100IfAmount900WithAPI() {
+        CashbackHackService service = new CashbackHackService();
+        int amount = 900;
+        int actual = service.remain(amount);
+        int expected = 100;
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    public void shouldReturn500IfAmount500WithAPI() {
+        CashbackHackService service = new CashbackHackService();
+        int amount = 500;
+        int actual = service.remain(amount);
+        int expected = 500;
         assertEquals(actual, expected);
     }
 }
